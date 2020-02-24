@@ -1,0 +1,512 @@
+% "Станет проще"
+
+\documentclass[a4paper,12pt]{article} % тип документа
+
+% report, book
+
+%  Русский язык
+% процент означает комментарий
+
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+% Буквенные списки
+\renewcommand{\theenumi}{(\asbuk{enumi})}
+\renewcommand{\labelenumi}{\asbuk{enumi})}
+
+
+
+
+
+
+
+% Математика
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools} 
+
+
+\usepackage{wasysym}
+
+%Заговолок
+
+
+
+\newenvironment{bottompar}{\par\vspace*{\fill}}{\clearpage}
+
+\begin{document} % начало документа
+
+
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+\textsc{\LARGE министерство науки и высшего образования российской федерации\\[0.1cm]
+\Large Московский\\[-0.2cm]Физико-Технический Институт\\[0.1cm]\large (государственный университет)}\\[1.5cm] % Name of your university/college
+\textsc{\Large Кафедра общей физики}\\[0.2cm] % Major heading such as course name
+\textsc{\large Вопрос по выбору, 2 семестр}\\[0.5cm] % Minor heading such as course title
+
+\HRule
+\\[0.1cm]
+{ \large \bfseries Изучение равновесия 
+\\[0.0cm] диссоциации  \(N_2O_4\) в газовой фазе \\[0.1cm] спектрофотометрическим методом} % Title of your document
+\HRule
+\\[1.5cm]
+
+\begin{flushleft} \large
+	\textsf{Студент}\\[0.1cm]
+	Соколов Вадим \\
+	718 группа
+\end{flushleft}
+
+\begin{bottompar}
+	\begin{center}
+		\includegraphics[width = 80 mm]{logo.jpg}
+	\end{center}
+	{\large \today}
+
+\end{bottompar}
+\vfill
+\end{titlepage}
+
+
+\newpage
+
+\subsection*{Цель работы}
+Измерение степение диссоциации молекул \( N_2O_4\).
+
+\subsection*{Оборудование}
+Двухлучевой сканирующий спектрофотометр Shimadzu UV-1800; ячейка, наполненная \(N_2O_4\).
+
+\begin{center}
+Введение
+\end{center}
+
+Положение химического равновесия может быть с высокой точностью рассчитано на основании термодинамических функций участников процесса. Такие расчеты являются основой решения множества важных практических задач. С другой стороны, термодинамические функции реакций чаще всего получают именно из данных по химическим равновесиям, хотя есть и другие экспериментальные источники, например, калориметрия, спектроскопия, теплоемкость и др. Специалистам разных областей химии, биологии, физики и техники необходимо свободно решать как прямые, так и обратные задачи химических равновесий.
+В настоящей работе предлагается познакомиться с этими методами на примере равновесия диссоциации
+
+\begin{equation}\label{chem}
+N_2O_4 \Leftrightarrow 2NO_2
+\end{equation}
+в газовой фазе.
+
+Для измерения степени диссоциации в данной работе используется интенсивное поглощение молекулами NO2 света в видимой области спектра. Измерения проводят при разных температурах, получая температурную зависимость константы равновесия \eqref{chem}, которую анализируют в рамках имеющейся теории.
+
+\begin{center}
+{ \LARGE теоретические основы}
+\end{center}
+Условие химического равновесия, как известно, записывается в форме равенства нулю изменения термодинамического потенциала системы в ходе реакции, т. е.
+\begin{equation}
+ \Delta G_{T,p}  = 0
+\end{equation}	
+
+Согласно определению
+
+\begin{equation}
+ \Delta G_{T,p}  = \sum {(\frac{\partial G}{\partial n_i})_{T,p} dn_i \sum {\mu_i dn_i}  }
+\end{equation}	
+где \(n_i\), — число молей i-го компонента системы 1, а \(\mu_i\), — его химический потенциал, являющийся мерой влияния данного вещества на термодинамическое состояние системы. Уравнение (3) записано при условии постоянства концентраций всех компонентов системы, кроме i-го. Зависимость химического потенциала идеального газа от давления дается формулой
+
+\begin{equation}
+ \mu_i = \mu_i^0 + RT \ln{p_i}
+\end{equation}
+в которой \( \mu_i^0 \) - стандартный химический потенциал i-го компонента при 1 атм.
+Если исключительно для простоты записи последующих уравнений представить равновесие (1) в форме
+
+\begin{equation}\label{BA}
+ B \Leftrightarrow 2A
+\end{equation}
+то на основании приведенных выше соотношений условие равновесия реакции \eqref{BA} можно записать в виде
+
+\begin{equation}
+ 2 \mu_A^0 + RT \ln{p_A^2} - \mu_B^0 - RT \ln{p_B} = 0,
+\end{equation}
+и после несложного преобразования получим выражение
+
+\begin{equation} \label{RT}
+ -RT \ln(p_A^2 / p_B) = 2 \mu_A^0 - \mu_B^0
+\end{equation}
+
+в котором комбинация давлений газов в равновесной системе, стоящая в скобках, соответствует константе равновесия
+
+\begin{equation} \label{Koeff}
+ K_p = p_A^2 / p_B
+\end{equation}
+Подставляя \eqref{Koeff} в \eqref{RT}, получим выражение
+\begin{equation}
+ -RT \ln(K_p) =  2 G_A^0 - G_B^0 = \Delta G^0,
+\end{equation}
+являющееся условием химического равновесия. В нем скрыта размерность константы равновесия, которая связана с выбором стандартного состояния. Можно записать
+
+\begin{equation}
+ \Delta G^0 = -RT ln(K_p / K_p^0)
+\end{equation}
+причем в стандартном состоянии \(K_p^0\) в скобке равно единице в размерности этого состояния в соответствующей степени. Например, для газов в качестве стандартного состояния в большинстве случаев используют 1 атм, так что в рассматриваемом равновесии \(K_p\) и \(K_p^0\) выражены в атм.
+Изменение термодинамического потенциала, в свою очередь, связано с изменениями энтальпии и энтропии в реакции соотношением:
+
+\begin{equation}
+ \Delta G^0 = \Delta H^0 - T \Delta S^0
+\end{equation}
+
+Величина каждой из составляющих его функций зависит от температуры согласно приближенным уравнениям:
+
+\begin{equation}
+ \Delta H_T^0 = \Delta H_{298}^0 + \Delta c_p \Delta T
+\end{equation}
+
+\begin{equation}
+ \Delta S_T^0 = \Delta S_{298}^0 + \Delta c_p \Delta \ln{T}
+\end{equation}
+в которых \(\Delta r c_p\) представляет собой разность теплоёмкостей продуктов и исходных веществ, а приращение Т и lnТ отсчитываются от стандартной температуры 298,15 К. Для относительно узких температурных интервалов этими зависимостями можно пренебречь, что приводит к окончательным соотношениям:
+
+\begin{equation}
+ \Delta G_T^0 = \Delta H_{298}^0 - T \Delta S_{298}^0
+\end{equation}
+
+\begin{equation}
+ RT \ln K_p = - \Delta G_T^0 = -\Delta H_{298}^0 + T \Delta S_{298}^0
+\end{equation}
+которыми предлагается пользоваться в дальнейших расчетах. Более строгую, чем уравнение (15), температурную зависимость константы равновесия можно получить с учетом зависимости \(\Delta rcp(Т)\) и интегрирования уравнений для $\Delta rH_T^0$ и $\Delta rS_T^0$.
+	
+В практически более удобной записи выражения (8) для константы равновесия реакции (1) в форме (5) используют степень диссоциации \(\alpha\). Предположим, что в замкнутую систему объемом \(V^0\)0 введено \(n^0\) молей газа А, так что суммарная концентрация обоих газов, выраженная в молях А и независящая от Т, составляет
+
+\begin{equation}
+ C_0 = n_0 /V_0
+\end{equation}
+
+а их полное давление:
+
+\begin{equation}
+ p_0 = RT \cdot C_0
+\end{equation}
+
+Такое давление имела бы система при температуре Т в условиях полной диссоциации. В иных условиях парциальные давления газов будут определяться уравнением материального баланса:
+
+\begin{equation}
+ p_0 = 2p_B + p_A,
+\end{equation}
+
+поскольку каждая молекула В содержит две молекулы А.
+Если степень диссоциации определить как
+
+\begin{equation}
+ \alpha = p_a/p_0 = (RT \cdot C_A)/(RT \cdot C_0)	
+\end{equation}
+
+то с учетом (18) получим для давлений газов
+
+\begin{equation}
+ p_A = \alpha \cdot p_0,
+\end{equation}
+
+
+\begin{equation}
+p_b = (1-\alpha)p_0/2.
+\end{equation}
+
+Полное давление равновесной системы будет функцией положения равновесия, т. е. \(0 \leqslant \alpha \leqslant 1\), и составит
+
+\begin{equation}
+p = p_A + p_B = \alpha\cdot p_0 + (1- \alpha)p_0/2 = (1+\alpha)p_0/2
+\end{equation}
+
+достигая р0 при полной диссоциации и \(p_0/2\)— в ее отсутствие, когда в системе присутствует только В.
+
+Подставляя (20) и (21) в (8), получим выражение для константы равновесия диссоциации:
+
+\begin{equation}
+K_p = 2 \alpha^2 p_0(1- \alpha)
+\end{equation}
+
+Уравнения (17), (20), (21) и (23) являются основой расчета Kp из экспериментальных данных.
+
+
+
+\subsection*{Ход работы}
+
+\begin{figure}[h]
+	\begin{center}
+		\begin{minipage}{0.45 \linewidth}
+			\includegraphics[width = 7cm]{termostat.jpg}
+		\end{minipage}
+		\qquad
+		\begin{minipage}{0.45 \linewidth}
+			\includegraphics[width = 7cm]{term.jpg}
+		\end{minipage}
+	\end{center}
+	\caption{Cхема установки}
+\end{figure}
+
+
+\begin{enumerate}
+	\item Подготовка установки
+	\item Установка температуры
+	\item Измерение оптической плотности ячейки
+	
+\end{enumerate}
+
+
+\emph{Подготовка установки}
+
+Очистим от загрязнений поверхность ячейки влажной тканью. Откалибруем фотоспектрометр.
+
+
+\begin{figure}
+	\includegraphics[scale=0.8]{section.jpg}
+	\caption{установка ячейки}
+\end{figure}
+
+\emph{Установка температуры}
+Включив термостат, установим на нем начальную температуру (30 $^\circ$C). Дождемся установления равновесного состояния в системе.
+
+\emph{Измерение оптической плотности ячейки}
+Проведем измерение оптической плотности ячейки при помощи фотоспектрографа в режиме Spectrum. Повторим пункты б) и в) до температуры 80 $^\circ$C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Комбинации событий}
+\subsection{T.1.}
+\begin{enumerate}
+\item
+\[\omega = A \setminus (B \cup C)\]
+\item 
+\[\omega = (A \cap B) \setminus C \]
+\item
+\[\omega = A \cap B \cap C\]
+\item
+\[\omega = A \cup B \cup C\]
+\item
+\[\omega = A \setminus (B \cup C) \cup B \setminus (A \cup C) \cup
+C \setminus (A \cup B) \]
+\item
+\[\omega = \overline{A \cup B \cup C}\]
+\item
+\[\omega = \overline{A \cap B \cap C} \]
+\end{enumerate}
+
+
+\newpage
+\subsection{T.2.}
+
+\[ \overline{(X \cup A)} \cup \overline{X \cup \overline{A}} = B \]
+\[ \overline{(X \cup A) \cap (X \cup \overline{A})} =   \]
+\[ = \overline{X \cup (A \cap \overline{A})} = 
+\overline{X \cup (\oslash) } = \overline{X}  \]
+\[ \Rightarrow X = \overline{B}  \]
+
+\subsection{T.3.}
+
+\begin{enumerate}
+\item
+\[ \overline{A \cap B} = \overline{A} \cup \overline{B} \]
+Пусть произвольное $\omega \in \overline{A \cap B}$
+Значит, $\omega$ не принадлежит ни одному из событий одновременно,
+т.е.
+$\omega \in \overline{A}$ или $\omega \in \overline{B}$
+
+По определению суммы событий:
+\[ \omega \in (\overline{A} \cup \overline{B})  \]
+Т.е. \[  \overline{A \cap B} \in (\overline{A} \cup \overline{B}) \]
+
+Обратно: пусть произвольное
+ $\omega \in (\overline{A} \cup \overline{B})$
+ т.е. $ \omega $ не принадлежит не принадлежит событию A и одновременно не принадлежит событию B. Значит по определению произведения событий событие $ \omega $ не принадлежит пересечению.
+ По определению разности событий:
+ \[ \omega  \in (1 \setminus (A \cap B)) \]
+ 
+ Или
+ \[ \omega  \in (\overline{A \cap B)} \]
+ Т.е. 
+\[\overline{A} \cup \overline{B} \in  \overline{A \cap B} \]
+
+Равенство доказано, т.к. множества его левой и правой частей состоят из одинаковых элементов.
+\item 
+\[  \]
+\item
+\[  \]
+\item
+\[  \]
+\item
+\[  \]
+\item
+\[  \]
+\item
+\[  \]
+\end{enumerate}
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Наша первая формула $100+100=200$, ага.
+
+\[ 100+100=200 \]
+
+\begin{equation}\label{pifagor}
+a^2+b^2=c^2
+\end{equation}
+
+Теорему Пифагора \eqref{pifagor} вы знаете с 8 класса\footnote{Определенно знали}. Эта теорема упоминается на странице \pageref{pifagor}.
+
+\subsection{Дроби}
+
+$\frac{1}{3}+\frac{1}{3}=\frac{2}{3}$. Вот вам и дроби\footnote{А это с пятого класса.}. {\scriptsize Так некрасиво.} {\Large Красиво так}:
+
+\[ \frac{1}{3}+\frac{1}{3}=\frac{2}{3} \]
+
+
+\subsection{Скобки}
+
+\[ (2+3)\cdot 5=25 \]
+
+\[ \left[\frac{4}{2}+3\right]\cdot 5=25 \]
+
+\[ \{2+3\}\cdot 5=25 \]
+
+\subsection{Индексы}
+
+\[ m_1, m_{12}, c^2, c^{22} \]
+
+\subsection{Стандартные функции}
+
+\[ \sin x=0 \]
+\[ \arctg x=\sqrt[5]{3} \]
+\[ \log_{x-1}{(x^2-3x-4)}\geqslant 2 \]
+\[ \lg 10=\ln e \]
+
+\subsection{Функции покрупнее}
+
+$\sum_{i=1}^{n}a_i+b_i$
+
+\[ \sum_{i=1}^{n}a_i+b_i \]
+
+$I=\int r^2dm$
+
+\[I=\int r^2dm \]
+
+\[I=\int_{0}^{1} r^2dm \]
+
+\[I=\int\limits_{0}^{1} r^2dm \]
+
+\subsection{Символы}
+
+\[2\times 2\neq 5 \]
+
+\[x \cap y,  x \cup y\]
+
+\[x\in (-\infty; 0)\]
+
+\[ \triangle ABC = \triangle A_1B_1C_1 \Rightarrow \angle A= \angle A_1\]
+
+\smiley
+
+
+\newpage
+\begin{center}
+Вторая часть
+\end{center}
+
+\begin{flushright}
+Ты будешь доволен собой и женой, своей конституцией куцей!
+Но для поэта всемирный запой и мало ему конституций!
+\end{flushright}
+
+
+\begin{itemize}
+\item написать скобочный анализ
+\item написать Максу
+\item 2-я неделя матан
+\begin{itemize}
+\item задание
+\item найти теорию
+\end{itemize}
+\end{itemize}
+
+
+\begin{enumerate}
+\item написать скобочный анализ
+\item написать Максу
+\item 2-я неделя матан
+\begin{itemize}
+\item задание
+\item найти теорию
+\end{itemize}
+\end{enumerate}
+
+\subsection{Диакритические знаки}
+
+
+\[x\in \mathbb{R} \]
+
+
+
+
+
+
+\end{document} % конец документа
